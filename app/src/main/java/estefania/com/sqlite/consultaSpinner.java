@@ -20,18 +20,24 @@ public class consultaSpinner extends AppCompatActivity {
 
     Spinner comboPersonas;
     TextView txtNombre, txtDoc, txtEdad;
+
+    //Lista para la información del combo
     ArrayList<String> listaPersonas;
+
+    //Lista con la información del usuario
     ArrayList<Usuario> personasList;
+
 
     ConexionSQLiteHelper conn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta_spinner);
+
+
+        //Conexión a la base de datos
         conn=new ConexionSQLiteHelper(getApplicationContext(),"bd_usuarios",null,1);
         comboPersonas= findViewById(R.id.combo);
-
         txtNombre=findViewById(R.id.nombre);
         txtDoc=findViewById(R.id.doc);
         txtEdad=findViewById(R.id.edad);
@@ -42,6 +48,7 @@ public class consultaSpinner extends AppCompatActivity {
         comboPersonas.setAdapter(adaptador);
     }
 
+    //Llama a la base de datos para obtener los registros
     private void  consultarListaPersonas()
     {
         SQLiteDatabase db=conn.getReadableDatabase();
@@ -49,8 +56,10 @@ public class consultaSpinner extends AppCompatActivity {
         Usuario persona=null;
         personasList=new ArrayList<Usuario>();
 
+        //consulta
         Cursor cursor=db.rawQuery("SELECT * FROM "+ Utilidades.TABLA_USUARIO,null);
 
+        //recorrer los registros de la base de datos
         while(cursor.moveToNext())
         {
             persona=new Usuario();
@@ -58,18 +67,23 @@ public class consultaSpinner extends AppCompatActivity {
             persona.setNombre(cursor.getString(1));
             persona.setEdad(cursor.getString(2));
 
+            //añadirlos a la lista
             personasList.add(persona);
 
         }
+
+
         obtenerLista();
 
     }
 
+    //para mostrar la lista en el combo
     private void obtenerLista()
     {
         listaPersonas=new ArrayList<String>();
         listaPersonas.add("Selecciona una opción");
 
+        //Recorrer los objetos de la lista
         for(int i=0; i<personasList.size();i++)
         {
             listaPersonas.add(personasList.get(i).getId()+" - "+personasList.get(i).getNombre());
