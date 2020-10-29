@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".consultar">
+
+    <Button
+        android:id="@+id/eliminar"
+        android:layout_width="144dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="255dp"
+        android:onClick="onClick"
+        android:text="Eliminar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/actualizar"
+        app:layout_constraintTop_toBottomOf="@+id/buscar" />
+
+    <EditText
+        android:id="@+id/doc"
+        android:layout_width="174dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="81dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="35dp"
+        android:ems="10"
+        android:hint="Documento"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/nombre"
+        app:layout_constraintEnd_toStartOf="@+id/buscar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buscar"
+        android:layout_width="97dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="291dp"
+        android:onClick="onClick"
+        android:text="Buscar"
+        app:layout_constraintBottom_toTopOf="@+id/eliminar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/doc"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/actualizar"
+        android:layout_width="141dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="261dp"
+        android:onClick="onClick"
+        android:text="Actualizar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/eliminar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edad" />
+
+    <EditText
+        android:id="@+id/nombre"
+        android:layout_width="299dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="41dp"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/edad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doc" />
+
+    <EditText
+        android:id="@+id/edad"
+        android:layout_width="282dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="97dp"
+        android:ems="10"
+        android:hint="Edad"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/actualizar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+</androidx.constraintlayout.widget.ConstraintLayout>
